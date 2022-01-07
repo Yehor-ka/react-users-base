@@ -1,0 +1,5 @@
+{
+  "secret": "35egehdsb44gwgds",
+  "serverPort": 5000,
+  "mongodbPath": "mongodb+srv://yehor:0028@cluster0.n4twl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}

@@ -1,12 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const authRouter = require('./authRouter')
-const usersRouter = require('./usersRouter')
-const PORT = process.env.PORT || 5000
+const authRouter = require('./routes/authRouter')
+const usersRouter = require('./routes/usersRouter')
+const config = require('./config/default.json')
+const PORT = process.env.PORT || config.serverPort
 const cors = require('cors')
 const corsOptions ={
     origin:'http://localhost:3000',
-    credentials:true,            //access-control-allow-credentials:true
+    credentials:true,            
     optionSuccessStatus:200
 }
 
@@ -19,7 +20,7 @@ app.use('/users', usersRouter)
 
 const start = async () => {
     try{
-        await mongoose.connect('mongodb+srv://yehor:0028@cluster0.n4twl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+        await mongoose.connect(config.mongodbPath)
         app.listen(PORT, () => console.log(`server started on port ${PORT}`))
     } catch (e) {
         console.log(e)

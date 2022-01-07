@@ -1,6 +1,6 @@
 const Router = require('express')
 const usersRouter = new Router()
-const controller = require('./authController')
+const controller = require('../authController')
 
 usersRouter.get('/users', controller.getUsers)
 usersRouter.delete('/delete/:id', controller.delete)
